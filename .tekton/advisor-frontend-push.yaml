@@ -28,6 +28,8 @@ spec:
     value: build-tools/Dockerfile
   - name: path-context
     value: .
+  pipelineRef:
+    name: docker-build-oci-ta
   taskRunTemplate:
     serviceAccountName: build-pipeline-advisor-frontend
   workspaces:

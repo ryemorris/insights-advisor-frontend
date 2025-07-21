@@ -38,6 +38,8 @@ spec:
     value: '{"type": "npm", "path": "."}'
   - name: prefetch-dev-package-managers
     value: "true"
+  pipelineRef:
+    name: docker-build-oci-ta
   taskRunTemplate:
     serviceAccountName: build-pipeline-advisor-frontend-hermetic
   workspaces:
