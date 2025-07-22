@@ -1,8 +1,8 @@
-import {
-  Column,
-  Section,
-  Table,
-} from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
+// import {
+//   Column,
+//   Section,
+//   Table,
+// } from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
 import { Link, StyleSheet, Text } from '@react-pdf/renderer';
 
 import { BASE_URI } from '../../AppConstants';
@@ -101,16 +101,22 @@ export const TablePage = ({ page, systems, intl }) => {
     }),
   ];
 
+  // return (
+  //   <React.Fragment key={page}>
+  //     <Column>
+  //       <Table
+  //         withHeader
+  //         rows={[header.map((item) => headerBuilder(item)), ...rows]}
+  //       />
+  //     </Column>
+  //   </React.Fragment>
+  // );
+
   return (
     <React.Fragment key={page}>
-      <Column>
-        <Table
-          withHeader
-          rows={[header.map((item) => headerBuilder(item)), ...rows]}
-        />
-      </Column>
     </React.Fragment>
   );
+
 };
 
 TablePage.propTypes = {
@@ -122,6 +128,44 @@ TablePage.propTypes = {
 export const leadPage = ({ systemsTotal, systems, filters, tags, intl }) => {
   delete filters.offset;
   delete filters.limit;
+  // return (
+  //   <React.Fragment
+  //     key={`${intl.formatMessage(
+  //       messages.insightsHeader,
+  //     )}: ${intl.formatMessage(messages.systems)}`}
+  //   >
+  //     <Text key="sys-count" style={styles.text}>
+  //       {intl.formatMessage(messages.sysTableCount, {
+  //         systems: (
+  //           <Text key="sys-count-count" style={styles.bold}>
+  //             {intl.formatMessage(messages.execReportHeaderSystems, {
+  //               systems: systemsTotal,
+  //             })}
+  //             {systemsTotal > 1000 && intl.formatMessage(messages.dueTo)}
+  //           </Text>
+  //         ),
+  //       })}
+  //     </Text>
+  //     <Text key="sys-filters" style={styles.text}>
+  //       {intl.formatMessage(messages.filtersApplied)}
+  //     </Text>
+  //     <Text key="sys-filters-values" style={styles.bold}>
+  //       {Object.entries(filters).map((value) => (
+  //         <Text key={value}>{`${value[0]}: ${value[1]}     `}</Text>
+  //       ))}
+  //     </Text>
+  //     <Text key="sys-tags" style={styles.text}>
+  //       {intl.formatMessage(messages.tagsApplied)}
+  //     </Text>
+  //     <Text key="sys-tags-values" style={styles.bold}>
+  //       {tags ? decodeURIComponent(tags) : intl.formatMessage(messages.noTags)}
+  //     </Text>
+  //     <Section key="systems" title="Systems">
+  //       <TablePage systems={systems} intl={intl} />
+  //     </Section>
+  //   </React.Fragment>
+  // );
+
   return (
     <React.Fragment
       key={`${intl.formatMessage(
@@ -154,9 +198,6 @@ export const leadPage = ({ systemsTotal, systems, filters, tags, intl }) => {
       <Text key="sys-tags-values" style={styles.bold}>
         {tags ? decodeURIComponent(tags) : intl.formatMessage(messages.noTags)}
       </Text>
-      <Section key="systems" title="Systems">
-        <TablePage systems={systems} intl={intl} />
-      </Section>
     </React.Fragment>
   );
 };

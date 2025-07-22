@@ -3,7 +3,7 @@ import './_Export.scss';
 import React, { useContext, useState } from 'react';
 import { leadPage, TablePage } from './SystemsPdfBuild';
 
-import { DownloadButton } from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
+// import { DownloadButton } from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
 import { Get } from '../../Utilities/Api';
 import PropTypes from 'prop-types';
 import messages from '../../Messages';
@@ -63,29 +63,31 @@ const SystemsPdf = ({ filters }) => {
     ];
   };
 
-  return (
-    <DownloadButton
-      groupName={intl.formatMessage(messages.redHatInsights)}
-      allPagesHaveTitle={false}
-      label={
-        loading
-          ? intl.formatMessage(messages.loading)
-          : intl.formatMessage(messages.exportPdf)
-      }
-      asyncFunction={dataFetch}
-      buttonProps={{
-        variant: '',
-        component: 'button',
-        className: 'pf-v5-c-menu__item adv-c-dropdown-systems-pdf__menu-item',
-        ...(loading ? { isDisabled: true } : null),
-      }}
-      reportName={`${intl.formatMessage(messages.insightsHeader)}:`}
-      type={intl.formatMessage(messages.systems)}
-      fileName={`Advisor_systems--${new Date()
-        .toUTCString()
-        .replace(/ /g, '-')}.pdf`}
-      size={[841.89, 595.28]}
-    />
+  // return (
+  //   <DownloadButton
+  //     groupName={intl.formatMessage(messages.redHatInsights)}
+  //     allPagesHaveTitle={false}
+  //     label={
+  //       loading
+  //         ? intl.formatMessage(messages.loading)
+  //         : intl.formatMessage(messages.exportPdf)
+  //     }
+  //     asyncFunction={dataFetch}
+  //     buttonProps={{
+  //       variant: '',
+  //       component: 'button',
+  //       className: 'pf-v5-c-menu__item adv-c-dropdown-systems-pdf__menu-item',
+  //       ...(loading ? { isDisabled: true } : null),
+  //     }}
+  //     reportName={`${intl.formatMessage(messages.insightsHeader)}:`}
+  //     type={intl.formatMessage(messages.systems)}
+  //     fileName={`Advisor_systems--${new Date()
+  //       .toUTCString()
+  //       .replace(/ /g, '-')}.pdf`}
+  //     size={[841.89, 595.28]}
+  //   />
+  // );
+    return (
   );
 };
 

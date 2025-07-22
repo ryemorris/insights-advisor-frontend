@@ -1,13 +1,13 @@
-import {
-  Chart,
-  Column,
-  InsightsLabel,
-  Panel,
-  PanelItem,
-  Paragraph,
-  Section,
-  Table,
-} from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
+// import {
+//   Chart,
+//   Column,
+//   InsightsLabel,
+//   Panel,
+//   PanelItem,
+//   Paragraph,
+//   Section,
+//   Table,
+// } from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -126,69 +126,73 @@ const BuildExecReport = ({
     </Text>
   );
 
+  // return (
+  //   <React.Fragment key={intl.formatMessage(messages.insightsHeader)}>
+  //     <Paragraph>
+  //       {intl.formatMessage(messages.execReportHeader, {
+  //         systems: (
+  //           <Text style={{ fontWeight: 700 }}>
+  //             {intl.formatMessage(messages.execReportHeaderSystems, {
+  //               systems: statsSystems.total,
+  //             })}
+  //           </Text>
+  //         ),
+  //         risks: (
+  //           <Text style={{ fontWeight: 700 }}>
+  //             {' '}
+  //             {intl.formatMessage(messages.execReportHeaderRisks, {
+  //               risks: statsReports.total,
+  //             })}
+  //           </Text>
+  //         ),
+  //       })}
+  //     </Paragraph>
+  //     <Section title={intl.formatMessage(messages.severityHeader)}>
+  //       <Column>
+  //         <Table withHeader rows={severityRows} />
+  //       </Column>
+  //       <Column>
+  //         <Chart
+  //           chartType="pie"
+  //           subTitle={intl.formatMessage(messages.severityHeader)}
+  //           title="100"
+  //           data={severityPie}
+  //           colorSchema={'multi'}
+  //         />
+  //       </Column>
+  //     </Section>
+  //     <Section title={intl.formatMessage(messages.categoryHeader)}>
+  //       <Column>
+  //         <Table withHeader rows={categoryRows} />
+  //       </Column>
+  //       <Column>
+  //         <Chart
+  //           chartType="pie"
+  //           subTitle={intl.formatMessage(messages.categoryHeader)}
+  //           title="100"
+  //           data={categoryPie}
+  //         />
+  //       </Column>
+  //     </Section>
+  //     <Section
+  //       title={intl.formatMessage(messages.top3RulesHeader)}
+  //       withColumn={false}
+  //     >
+  //       {topActiveRec.data.map((rule, key) => (
+  //         <Panel key={key} description={rulesDesc(rule)}>
+  //           <PanelItem
+  //             title={intl.formatMessage(messages.systemsExposed)}
+  //           >{`${rule.impacted_systems_count}`}</PanelItem>
+  //           <PanelItem title={intl.formatMessage(messages.totalRisk)}>
+  //             <InsightsLabel variant={rule.total_risk} />
+  //           </PanelItem>
+  //         </Panel>
+  //       ))}
+  //     </Section>
+  //   </React.Fragment>
+  // );
   return (
     <React.Fragment key={intl.formatMessage(messages.insightsHeader)}>
-      <Paragraph>
-        {intl.formatMessage(messages.execReportHeader, {
-          systems: (
-            <Text style={{ fontWeight: 700 }}>
-              {intl.formatMessage(messages.execReportHeaderSystems, {
-                systems: statsSystems.total,
-              })}
-            </Text>
-          ),
-          risks: (
-            <Text style={{ fontWeight: 700 }}>
-              {' '}
-              {intl.formatMessage(messages.execReportHeaderRisks, {
-                risks: statsReports.total,
-              })}
-            </Text>
-          ),
-        })}
-      </Paragraph>
-      <Section title={intl.formatMessage(messages.severityHeader)}>
-        <Column>
-          <Table withHeader rows={severityRows} />
-        </Column>
-        <Column>
-          <Chart
-            chartType="pie"
-            subTitle={intl.formatMessage(messages.severityHeader)}
-            title="100"
-            data={severityPie}
-            colorSchema={'multi'}
-          />
-        </Column>
-      </Section>
-      <Section title={intl.formatMessage(messages.categoryHeader)}>
-        <Column>
-          <Table withHeader rows={categoryRows} />
-        </Column>
-        <Column>
-          <Chart
-            chartType="pie"
-            subTitle={intl.formatMessage(messages.categoryHeader)}
-            title="100"
-            data={categoryPie}
-          />
-        </Column>
-      </Section>
-      <Section
-        title={intl.formatMessage(messages.top3RulesHeader)}
-        withColumn={false}
-      >
-        {topActiveRec.data.map((rule, key) => (
-          <Panel key={key} description={rulesDesc(rule)}>
-            <PanelItem
-              title={intl.formatMessage(messages.systemsExposed)}
-            >{`${rule.impacted_systems_count}`}</PanelItem>
-            <PanelItem title={intl.formatMessage(messages.totalRisk)}>
-              <InsightsLabel variant={rule.total_risk} />
-            </PanelItem>
-          </Panel>
-        ))}
-      </Section>
     </React.Fragment>
   );
 };

@@ -8,7 +8,7 @@ import {
   exportNotifications,
 } from '../../AppConstants';
 import React, { useState } from 'react';
-import { DownloadButton } from '@redhat-cloud-services/frontend-components-pdf-generator';
+// import { DownloadButton } from '@redhat-cloud-services/frontend-components-pdf-generator';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux/actions/notifications';
 import { Get } from '../../Utilities/Api';
 import messages from '../../Messages';
@@ -62,29 +62,31 @@ const DownloadExecReport = ({ isDisabled }) => {
     }
   };
 
+  // return (
+  //   <DownloadButton
+  //     fallback={<div />}
+  //     groupName={intl.formatMessage(messages.redHatInsights)}
+  //     label={
+  //       loading
+  //         ? intl.formatMessage(messages.loading)
+  //         : intl.formatMessage(messages.downloadExecutiveLabel)
+  //     }
+  //     asyncFunction={dataFetch}
+  //     buttonProps={{
+  //       variant: 'link',
+  //       icon: <ExportIcon className="iconOverride" />,
+  //       component: 'a',
+  //       className: 'downloadButtonOverride',
+  //       isAriaDisabled: isDisabled,
+  //       ...(loading ? { isDisabled: true } : null),
+  //     }}
+  //     type={INSIGHTS_HEADER}
+  //     fileName={`Advisor-Executive-Report--${new Date()
+  //       .toUTCString()
+  //       .replace(/ /g, '-')}.pdf`}
+  //   />
+  // );
   return (
-    <DownloadButton
-      fallback={<div />}
-      groupName={intl.formatMessage(messages.redHatInsights)}
-      label={
-        loading
-          ? intl.formatMessage(messages.loading)
-          : intl.formatMessage(messages.downloadExecutiveLabel)
-      }
-      asyncFunction={dataFetch}
-      buttonProps={{
-        variant: 'link',
-        icon: <ExportIcon className="iconOverride" />,
-        component: 'a',
-        className: 'downloadButtonOverride',
-        isAriaDisabled: isDisabled,
-        ...(loading ? { isDisabled: true } : null),
-      }}
-      type={INSIGHTS_HEADER}
-      fileName={`Advisor-Executive-Report--${new Date()
-        .toUTCString()
-        .replace(/ /g, '-')}.pdf`}
-    />
   );
 };
 
