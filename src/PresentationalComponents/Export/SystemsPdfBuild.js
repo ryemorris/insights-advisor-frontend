@@ -3,9 +3,10 @@
 //   Section,
 //   Table,
 // } from '@redhat-cloud-services/frontend-components-pdf-generator/dist/esm/index';
-import { Link, StyleSheet, Text } from '@react-pdf/renderer';
+// import { Link, StyleSheet, Text } from '@react-pdf/renderer';
+import { StyleSheet, Text } from '@react-pdf/renderer';
 
-import { BASE_URI } from '../../AppConstants';
+// import { BASE_URI } from '../../AppConstants';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -33,73 +34,74 @@ const styles = StyleSheet.create({
   },
 });
 
-export const TablePage = ({ page, systems, intl }) => {
-  const header = [
-    { value: intl.formatMessage(messages.name), style: styles.nameColumn },
-    {
-      value: intl.formatMessage(messages.recommendations),
-      style: { width: '100px', textAlign: 'center' },
-    },
-    {
-      value: intl.formatMessage(messages.critical),
-      style: { width: '70px', textAlign: 'center' },
-    },
-    {
-      value: intl.formatMessage(messages.important),
-      style: { width: '70px', textAlign: 'center' },
-    },
-    {
-      value: intl.formatMessage(messages.moderate),
-      style: { width: '60px', textAlign: 'center' },
-    },
-    {
-      value: intl.formatMessage(messages.low),
-      style: { width: '90px', textAlign: 'center' },
-    },
-    {
-      value: intl.formatMessage(messages.lastSeen),
-      style: { marginLeft: '20px' },
-    },
-  ];
-  const hitColumns = [
-    'hits',
-    'critical_hits',
-    'important_hits',
-    'moderate_hits',
-    'low_hits',
-  ];
-  const headerBuilder = ({ value, style }) => (
-    <Text style={{ ...style, ...styles.header, ...styles.bold }}>{value}</Text>
-  );
-  const rowBuilder = ({ value, style }) => <Text style={style}>{value}</Text>;
-  const rows = [
-    ...systems.map((system) => {
-      const [, date, month, year, time] = new Date(system.last_seen)
-        .toUTCString()
-        .split(' ');
-      const sysDate = `${date} ${month} ${year}, ${time
-        .split(':')
-        .slice(0, 2)
-        .join(':')} UTC`;
-      return [
-        <Text key={system.system_uuid} style={styles.nameColumn}>
-          <Link
-            style={styles.link}
-            src={`${BASE_URI}/insights/advisor/systems/${system.system_uuid}/`}
-          >
-            {system.display_name}
-          </Link>
-        </Text>,
-        ...hitColumns.map((item) =>
-          rowBuilder({ style: { width: '10px' }, value: system[item] }),
-        ),
-        <Text
-          key={system.last_seen}
-          style={{ width: '100px' }}
-        >{`${sysDate}`}</Text>,
-      ];
-    }),
-  ];
+// export const TablePage = ({ page, systems, intl }) => {
+export const TablePage = ({ page }) => {
+  // const header = [
+  //   { value: intl.formatMessage(messages.name), style: styles.nameColumn },
+  //   {
+  //     value: intl.formatMessage(messages.recommendations),
+  //     style: { width: '100px', textAlign: 'center' },
+  //   },
+  //   {
+  //     value: intl.formatMessage(messages.critical),
+  //     style: { width: '70px', textAlign: 'center' },
+  //   },
+  //   {
+  //     value: intl.formatMessage(messages.important),
+  //     style: { width: '70px', textAlign: 'center' },
+  //   },
+  //   {
+  //     value: intl.formatMessage(messages.moderate),
+  //     style: { width: '60px', textAlign: 'center' },
+  //   },
+  //   {
+  //     value: intl.formatMessage(messages.low),
+  //     style: { width: '90px', textAlign: 'center' },
+  //   },
+  //   {
+  //     value: intl.formatMessage(messages.lastSeen),
+  //     style: { marginLeft: '20px' },
+  //   },
+  // ];
+  // const hitColumns = [
+  //   'hits',
+  //   'critical_hits',
+  //   'important_hits',
+  //   'moderate_hits',
+  //   'low_hits',
+  // ];
+  // const headerBuilder = ({ value, style }) => (
+  //   <Text style={{ ...style, ...styles.header, ...styles.bold }}>{value}</Text>
+  // );
+  // const rowBuilder = ({ value, style }) => <Text style={style}>{value}</Text>;
+  // const rows = [
+  //   ...systems.map((system) => {
+  //     const [, date, month, year, time] = new Date(system.last_seen)
+  //       .toUTCString()
+  //       .split(' ');
+  //     const sysDate = `${date} ${month} ${year}, ${time
+  //       .split(':')
+  //       .slice(0, 2)
+  //       .join(':')} UTC`;
+  //     return [
+  //       <Text key={system.system_uuid} style={styles.nameColumn}>
+  //         <Link
+  //           style={styles.link}
+  //           src={`${BASE_URI}/insights/advisor/systems/${system.system_uuid}/`}
+  //         >
+  //           {system.display_name}
+  //         </Link>
+  //       </Text>,
+  //       ...hitColumns.map((item) =>
+  //         rowBuilder({ style: { width: '10px' }, value: system[item] }),
+  //       ),
+  //       <Text
+  //         key={system.last_seen}
+  //         style={{ width: '100px' }}
+  //       >{`${sysDate}`}</Text>,
+  //     ];
+  //   }),
+  // ];
 
   // return (
   //   <React.Fragment key={page}>
@@ -112,11 +114,7 @@ export const TablePage = ({ page, systems, intl }) => {
   //   </React.Fragment>
   // );
 
-  return (
-    <React.Fragment key={page}>
-    </React.Fragment>
-  );
-
+  return <React.Fragment key={page}></React.Fragment>;
 };
 
 TablePage.propTypes = {
@@ -125,7 +123,8 @@ TablePage.propTypes = {
   intl: PropTypes.any,
 };
 
-export const leadPage = ({ systemsTotal, systems, filters, tags, intl }) => {
+// export const leadPage = ({ systemsTotal, systems, filters, tags, intl }) => {
+export const leadPage = ({ systemsTotal, filters, tags, intl }) => {
   delete filters.offset;
   delete filters.limit;
   // return (
