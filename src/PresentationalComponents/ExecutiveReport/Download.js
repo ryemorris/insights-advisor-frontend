@@ -86,8 +86,6 @@ const DownloadExecReport = ({ isDisabled }) => {
   //       .replace(/ /g, '-')}.pdf`}
   //   />
   // );
-  return (
-  );
 };
 
 DownloadExecReport.propTypes = {

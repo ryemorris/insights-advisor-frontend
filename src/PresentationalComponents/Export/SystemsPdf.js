@@ -87,8 +87,6 @@ const SystemsPdf = ({ filters }) => {
   //     size={[841.89, 595.28]}
   //   />
   // );
-    return (
-  );
 };
 
 SystemsPdf.propTypes = {
